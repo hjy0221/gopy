@@ -43,12 +43,12 @@ To use the command in new terminals, add the export line from step 2 to your she
 
 ## Command options
 
-| Command | What it does |
-| --- | --- |
-| `go run ./cmd/gopy examples/fibonacci.py` | Runs the Python program and shows its output. |
-| `go run ./cmd/gopy --tokens examples/fibonacci.py` | Shows the lexer output. Each row gives the token’s line and column, type, and text. For example, `print` is an `IDENTIFIER` and `10` is a `NUMBER`. |
-| `go run ./cmd/gopy --ast examples/fibonacci.py` | Shows the abstract syntax tree (AST) as JSON. Use it to see how expressions, calls, and blocks fit together. |
-| `go run ./cmd/gopy --help` | Shows the available options and exits. |
+| After installation | Command (`go run`) | What it does |
+| --- | --- | --- |
+| `gopython examples/fibonacci.py` | `go run ./cmd/gopy examples/fibonacci.py` | Runs the Python program and shows its output. |
+| `gopython --tokens examples/fibonacci.py` | `go run ./cmd/gopy --tokens examples/fibonacci.py` | Shows the lexer output. Each row gives the token’s line and column, type, and text. For example, `print` is an `IDENTIFIER` and `10` is a `NUMBER`. |
+| `gopython --ast examples/fibonacci.py` | `go run ./cmd/gopy --ast examples/fibonacci.py` | Shows the abstract syntax tree (AST) as JSON. Use it to see how expressions, calls, and blocks fit together. |
+| `gopython --help` | `go run ./cmd/gopy --help` | Shows the available options and exits. |
 
 Put options before the filename. Use either `--tokens` or `--ast` at a time. Both inspection modes display source structure without running the program.
 

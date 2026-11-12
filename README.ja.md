@@ -43,12 +43,12 @@ go run ./cmd/gopy examples/fibonacci.py
 
 ## 実行オプション
 
-| コマンド | 動作 |
-| --- | --- |
-| `go run ./cmd/gopy examples/fibonacci.py` | Python プログラムを実行し、結果を表示します。 |
-| `go run ./cmd/gopy --tokens examples/fibonacci.py` | 字句解析で得られたトークンを表示します。各行にはトークンの行番号、列番号、種類、元の文字列が表示されます。たとえば `print` は `IDENTIFIER`、`10` は `NUMBER` です。 |
-| `go run ./cmd/gopy --ast examples/fibonacci.py` | 抽象構文木 (AST) を JSON で表示します。式、関数呼び出し、インデントで区切られたブロックの構造を確認できます。 |
-| `go run ./cmd/gopy --help` | 利用できるオプションを表示して終了します。 |
+| インストール後 | コマンド (`go run`) | 動作 |
+| --- | --- | --- |
+| `gopython examples/fibonacci.py` | `go run ./cmd/gopy examples/fibonacci.py` | Python プログラムを実行し、結果を表示します。 |
+| `gopython --tokens examples/fibonacci.py` | `go run ./cmd/gopy --tokens examples/fibonacci.py` | 字句解析で得られたトークンを表示します。各行にはトークンの行番号、列番号、種類、元の文字列が表示されます。たとえば `print` は `IDENTIFIER`、`10` は `NUMBER` です。 |
+| `gopython --ast examples/fibonacci.py` | `go run ./cmd/gopy --ast examples/fibonacci.py` | 抽象構文木 (AST) を JSON で表示します。式、関数呼び出し、インデントで区切られたブロックの構造を確認できます。 |
+| `gopython --help` | `go run ./cmd/gopy --help` | 利用できるオプションを表示して終了します。 |
 
 オプションはファイル名の前に指定します。`--tokens` と `--ast` はどちらか一方を指定してください。どちらもプログラムを実行せずにソースの構造を表示します。
 

@@ -43,12 +43,12 @@ go run ./cmd/gopy examples/fibonacci.py
 
 ## 실행 옵션
 
-| 명령 | 동작 |
-| --- | --- |
-| `go run ./cmd/gopy examples/fibonacci.py` | Python 코드를 실행하고 프로그램의 출력을 보여 줍니다. |
-| `go run ./cmd/gopy --tokens examples/fibonacci.py` | 소스를 나눈 토큰을 보여 줍니다. 각 줄에는 토큰의 줄·열 번호, 종류, 원문이 나옵니다. 예를 들어 `print`는 `IDENTIFIER`, `10`은 `NUMBER`입니다. |
-| `go run ./cmd/gopy --ast examples/fibonacci.py` | 추상 구문 트리(AST)를 JSON으로 보여 줍니다. 식과 함수 호출, 들여쓰기 블록이 어떻게 묶이는지 확인할 수 있습니다. |
-| `go run ./cmd/gopy --help` | 사용 가능한 옵션을 표시하고 종료합니다. |
+| 설치 후 | 명령 (`go run`) | 동작 |
+| --- | --- | --- |
+| `gopython examples/fibonacci.py` | `go run ./cmd/gopy examples/fibonacci.py` | Python 코드를 실행하고 프로그램의 출력을 보여 줍니다. |
+| `gopython --tokens examples/fibonacci.py` | `go run ./cmd/gopy --tokens examples/fibonacci.py` | 소스를 나눈 토큰을 보여 줍니다. 각 줄에는 토큰의 줄·열 번호, 종류, 원문이 나옵니다. 예를 들어 `print`는 `IDENTIFIER`, `10`은 `NUMBER`입니다. |
+| `gopython --ast examples/fibonacci.py` | `go run ./cmd/gopy --ast examples/fibonacci.py` | 추상 구문 트리(AST)를 JSON으로 보여 줍니다. 식과 함수 호출, 들여쓰기 블록이 어떻게 묶이는지 확인할 수 있습니다. |
+| `gopython --help` | `go run ./cmd/gopy --help` | 사용 가능한 옵션을 표시하고 종료합니다. |
 
 옵션은 파일 이름 앞에 적으세요. `--tokens`와 `--ast`는 한 번에 하나만 사용할 수 있습니다. 두 옵션 모두 프로그램을 실행하지 않고 코드의 구조를 보여 줍니다.
 
