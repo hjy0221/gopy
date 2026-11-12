@@ -16,6 +16,18 @@ go run ./cmd/gopy examples/fibonacci.py
 
 サンプルは `print(fibonacci(10))` を呼び出し、`55` を表示します。
 
+## gopython コマンドのインストール
+
+macOS または Linux で、リポジトリのルートから次のコマンドを実行します。export を実行すると、現在のターミナルで gopython を使えます。新しいターミナルでも使うには、同じ行をシェルの設定ファイルに追加します。zsh の場合は ~/.zshrc です。
+
+```sh
+mkdir -p "$HOME/.local/bin"
+go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
+export PATH="$HOME/.local/bin:$PATH"
+gopython examples/fibonacci.py
+gopython --help
+```
+
 ## 実行オプション
 
 | コマンド | 動作 |
