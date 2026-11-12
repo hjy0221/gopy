@@ -80,6 +80,8 @@ go run ./cmd/gopy examples/fibonacci.py
 printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
 ```
 
+여기서 `printf`는 zsh에 내장된 셸 명령입니다. 따옴표 안의 글자를 출력하고, `\n`은 줄바꿈을 넣습니다. 파이프(`|`)가 그 글자를 gopy에 넘기면, gopy가 Python 코드를 실행해 `7`을 출력합니다.
+
 ## 지원하는 Python 문법
 
 단순 대입, 위치 인수를 받는 최상위 함수, 재귀 호출, `return`, `if/else`, 64비트 정수 연산과 비교, `print`를 실행할 수 있습니다. 문자열·실수 리터럴과 연쇄 비교는 AST에서 확인할 수 있습니다. 해당 문법과 일반 나눗셈(`/`), 중첩 함수의 실행은 아직 지원하지 않습니다.

@@ -80,6 +80,8 @@ Omit the filename to read Python source from standard input. This example prints
 printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
 ```
 
+Here, `printf` is a shell command built into zsh. It writes the text inside the quotes, with `\n` adding a newline. The pipe (`|`) passes that text to gopy, which evaluates the Python code and prints `7`.
+
 ## Supported Python features
 
 Execution supports simple assignments, top-level functions with positional arguments, recursion, `return`, `if/else`, 64-bit integer arithmetic and comparisons, and `print`. The parser can also show string and floating-point literals and chained comparisons in the AST. These features, true division (`/`), and nested functions are outside the current execution subset.
