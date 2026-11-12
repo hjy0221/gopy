@@ -16,17 +16,30 @@ go run ./cmd/gopy examples/fibonacci.py
 
 예제는 `print(fibonacci(10))`을 호출해 `55`를 출력합니다.
 
-## gopython 명령 설치
+## gopython 설치하고 실행하기
 
-macOS나 Linux에서 저장소 폴더를 열고 아래 명령을 실행하세요. export 줄을 실행하면 현재 터미널에서 gopython을 사용할 수 있습니다. 새 터미널에서도 사용하려면 같은 줄을 셸 설정 파일에 추가하세요. zsh에서는 ~/.zshrc를 사용합니다.
+위에서 내려받은 gopy 폴더에서 아래 순서대로 실행하세요.
 
-```sh
-mkdir -p "$HOME/.local/bin"
-go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
-export PATH="$HOME/.local/bin:$PATH"
-gopython examples/fibonacci.py
-gopython --help
-```
+1. 실행 파일을 만듭니다. 첫 줄은 명령을 보관할 폴더를 만들고, 둘째 줄은 그 안에 gopython을 저장합니다.
+
+   ```sh
+   mkdir -p "$HOME/.local/bin"
+   go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
+   ```
+
+2. 현재 터미널에 gopython이 있는 위치를 알려 줍니다.
+
+   ```sh
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+
+3. 예제를 실행합니다. 화면에 55가 나오면 설치가 완료된 것입니다.
+
+   ```sh
+   gopython examples/fibonacci.py
+   ```
+
+새 터미널에서도 쓰려면 2단계의 export 줄을 셸 설정 파일에 추가하세요. zsh를 사용한다면 ~/.zshrc에 추가하면 됩니다. “command not found”가 나오면 해당 터미널에서 2단계를 다시 실행하세요.
 
 ## 실행 옵션
 

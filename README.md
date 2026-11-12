@@ -16,17 +16,30 @@ go run ./cmd/gopy examples/fibonacci.py
 
 The example calls `print(fibonacci(10))` and prints `55`.
 
-## Install the gopython command
+## Install and run with gopython
 
-From the repository root, build the executable into a directory on your PATH. On macOS or Linux, use the commands below. The export makes it available in the current terminal. Add the same line to your shell startup file to keep it available in new terminals.
+Run these commands from the gopy folder you cloned above.
 
-```sh
-mkdir -p "$HOME/.local/bin"
-go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
-export PATH="$HOME/.local/bin:$PATH"
-gopython examples/fibonacci.py
-gopython --help
-```
+1. Build the command once. The first line creates a folder for your commands. The second puts gopython there.
+
+   ```sh
+   mkdir -p "$HOME/.local/bin"
+   go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
+   ```
+
+2. Tell your current terminal where to find gopython.
+
+   ```sh
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+
+3. Run the example. You should see 55.
+
+   ```sh
+   gopython examples/fibonacci.py
+   ```
+
+To use the command in new terminals, add the export line from step 2 to your shell settings file. For zsh, use ~/.zshrc. If you see “command not found”, run step 2 again in that terminal.
 
 ## Command options
 
