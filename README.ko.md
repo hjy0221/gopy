@@ -53,6 +53,7 @@ go run ./cmd/gopy examples/fibonacci.py
 ### PATH 명령의 각 부분
 
 - `PATH=` 셸이 명령을 찾을 때 사용하는 폴더 목록을 설정합니다.
+- `$` `$변수이름`에서 `$`는 셸에 그 변수의 값을 넣으라는 표시입니다. 예를 들어 `HOME`의 값이 `/Users/alex`이면 `$HOME/.local/bin`은 `/Users/alex/.local/bin`으로 바뀝니다.
 - `$HOME` 사용자 홈 폴더로 바뀝니다. `$HOME/.local/bin`은 1단계에서 `gopython`을 설치한 폴더입니다.
 - `:` 검색 목록에서 폴더와 폴더를 구분합니다.
 - `$PATH` 설정하기 전의 검색 목록으로 바뀝니다. 기존 폴더에서도 계속 명령을 찾을 수 있습니다.

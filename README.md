@@ -53,6 +53,7 @@ To use the command in new terminals, add the export line from step 2 to your she
 ### What the PATH command means
 
 - `PATH=` Sets the search path the shell uses to find commands.
+- `$` In `$NAME`, the dollar sign tells the shell to substitute the value of the variable named `NAME`. For example, if `HOME` is `/Users/alex`, `$HOME/.local/bin` becomes `/Users/alex/.local/bin`.
 - `$HOME` Expands to your home directory. `$HOME/.local/bin` is where step 1 installs `gopython`.
 - `:` Separates directories in the search list.
 - `$PATH` Expands to the existing search list, so the shell keeps looking in those directories too.

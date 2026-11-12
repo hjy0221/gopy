@@ -53,6 +53,7 @@ go run ./cmd/gopy examples/fibonacci.py
 ### PATH コマンドの各部分
 
 - `PATH=` シェルがコマンドを探すディレクトリの一覧を設定します。
+- `$` `$変数名` の `$` は、その変数の値に置き換えるようシェルに指示する記号です。たとえば `HOME` の値が `/Users/alex` なら、`$HOME/.local/bin` は `/Users/alex/.local/bin` になります。
 - `$HOME` ホームディレクトリに展開されます。`$HOME/.local/bin` は手順 1 で `gopython` を置いた場所です。
 - `:` 検索するディレクトリ同士を区切ります。
 - `$PATH` 変更前の検索一覧に展開されます。既存の場所も引き続き検索できます。
