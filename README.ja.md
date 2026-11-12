@@ -77,10 +77,10 @@ go run ./cmd/gopy examples/fibonacci.py
 ファイル名を省略すると、標準入力から Python ソースを読み込みます。次の例は `7` を表示します。`--tokens` と `--ast` でも標準入力を利用できます。
 
 ```sh
-printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
+printf 'print(1 + 2 * 3)' | go run ./cmd/gopy
 ```
 
-ここでの `printf` は zsh の組み込みコマンドです。引用符の中の文字列を出力し、`\n` で改行を加えます。パイプ（`|`）がその文字列を gopy に渡し、gopy が Python コードを実行して `7` を表示します。
+ここでの `printf` は zsh の組み込みコマンドです。引用符の中の文字列を出力します。パイプ（`|`）がその文字列を gopy に渡し、gopy が Python コードを実行して `7` を表示します。
 
 ## 対応する Python の機能
 

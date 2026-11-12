@@ -77,10 +77,10 @@ Put options before the filename. Use either `--tokens` or `--ast` at a time. Bot
 Omit the filename to read Python source from standard input. This example prints `7`. You can also use standard input with either inspection option.
 
 ```sh
-printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
+printf 'print(1 + 2 * 3)' | go run ./cmd/gopy
 ```
 
-Here, `printf` is a shell command built into zsh. It writes the text inside the quotes, with `\n` adding a newline. The pipe (`|`) passes that text to gopy, which evaluates the Python code and prints `7`.
+Here, `printf` is a shell command built into zsh. It writes the text inside the quotes. The pipe (`|`) passes that text to gopy, which evaluates the Python code and prints `7`.
 
 ## Supported Python features
 

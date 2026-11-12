@@ -77,10 +77,10 @@ go run ./cmd/gopy examples/fibonacci.py
 파일 이름을 생략하면 표준 입력에서 Python 소스를 읽습니다. 아래 예제는 `7`을 출력합니다. `--tokens`와 `--ast`도 표준 입력에서 사용할 수 있습니다.
 
 ```sh
-printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
+printf 'print(1 + 2 * 3)' | go run ./cmd/gopy
 ```
 
-여기서 `printf`는 zsh에 내장된 셸 명령입니다. 따옴표 안의 글자를 출력하고, `\n`은 줄바꿈을 넣습니다. 파이프(`|`)가 그 글자를 gopy에 넘기면, gopy가 Python 코드를 실행해 `7`을 출력합니다.
+여기서 `printf`는 zsh에 내장된 셸 명령입니다. 따옴표 안의 글자를 출력합니다. 파이프(`|`)가 그 글자를 gopy에 넘기면, gopy가 Python 코드를 실행해 `7`을 출력합니다.
 
 ## 지원하는 Python 문법
 
