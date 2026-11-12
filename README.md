@@ -41,6 +41,16 @@ Run these commands from the gopy folder you cloned above.
 
 To use the command in new terminals, add the export line from step 2 to your shell settings file. For zsh, use ~/.zshrc. If you see “command not found”, run step 2 again in that terminal.
 
+### What the PATH command means
+
+- `PATH=` Sets the search path the shell uses to find commands.
+- `$HOME` Expands to your home directory. `$HOME/.local/bin` is where step 1 installs `gopython`.
+- `:` Separates directories in the search list.
+- `$PATH` Expands to the existing search list, so the shell keeps looking in those directories too.
+- `export` Exports the updated variable to programs launched by the shell.
+- `"..."` Keeps the expanded value together even if a directory name contains spaces.
+- `~/.zshrc` A configuration file read when interactive zsh starts. `~` means your home directory.
+
 ## Command options
 
 | After installation | Command (`go run`) | What it does |
