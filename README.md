@@ -95,6 +95,16 @@ The lexer splits source into tokens. The parser groups those tokens into an AST.
 - `internal/vm/` — Stack VM
 - `examples/fibonacci.py` — Example that prints 55
 
+## More examples
+
+From the repository root, run any of these examples. If you are running from source, replace `gopython` with `go run ./cmd/gopy`.
+
+| Command | What it demonstrates | Output |
+| --- | --- | --- |
+| `gopython examples/arithmetic.py` | Integer arithmetic, floor division, and remainder | `22 12 85`<br>`3 2` |
+| `gopython examples/conditionals.py` | Even/odd checks with if/else | `True False` |
+| `gopython examples/functions.py` | Functions that call other functions | `25` |
+
 ## Build and test
 
 ```sh

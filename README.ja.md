@@ -95,6 +95,16 @@ printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
 - `internal/vm/` — スタック型 VM
 - `examples/fibonacci.py` — 55 を表示するサンプル
 
+## その他の実行例
+
+リポジトリのルートで次のコマンドを実行します。ソースから直接実行する場合は、`gopython` を `go run ./cmd/gopy` に置き換えてください。
+
+| 実行コマンド | 内容 | 出力 |
+| --- | --- | --- |
+| `gopython examples/arithmetic.py` | 整数演算、切り捨て除算、剰余 | `22 12 85`<br>`3 2` |
+| `gopython examples/conditionals.py` | if/else で偶数と奇数を判定 | `True False` |
+| `gopython examples/functions.py` | 関数から別の関数を呼び出す | `25` |
+
 ## ビルドとテスト
 
 ```sh

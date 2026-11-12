@@ -95,6 +95,16 @@ Lexer는 소스를 토큰으로 나눕니다. Parser는 토큰을 AST로 묶습�
 - `internal/vm/` — 스택 VM
 - `examples/fibonacci.py` — 55를 출력하는 예제
 
+## 다른 실행 예제
+
+저장소 폴더에서 아래 명령을 실행하세요. 소스에서 바로 실행하려면 `gopython` 자리에 `go run ./cmd/gopy`를 넣으세요.
+
+| 실행 명령 | 예제 내용 | 출력 |
+| --- | --- | --- |
+| `gopython examples/arithmetic.py` | 정수 연산, 몫과 나머지 | `22 12 85`<br>`3 2` |
+| `gopython examples/conditionals.py` | if/else로 짝수와 홀수 판별 | `True False` |
+| `gopython examples/functions.py` | 함수 안에서 다른 함수 호출 | `25` |
+
 ## 빌드와 테스트
 
 ```sh
