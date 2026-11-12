@@ -27,6 +27,9 @@ go run ./cmd/gopy examples/fibonacci.py
    go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
    ```
 
+   - `mkdir`는 폴더를 만듭니다. `-p`는 필요한 상위 폴더도 만들고, 대상 폴더가 이미 있으면 그대로 사용합니다.
+   - `go build`는 Go 소스를 실행 파일로 빌드합니다. `-o` 뒤에는 저장할 경로와 파일 이름을 지정합니다. `./cmd/gopy`는 현재 폴더를 기준으로 CLI 소스가 있는 곳입니다.
+
 2. 현재 터미널에 gopython이 있는 위치를 알려 줍니다.
 
    ```sh
@@ -37,6 +40,12 @@ go run ./cmd/gopy examples/fibonacci.py
 
    ```sh
    gopython examples/fibonacci.py
+   ```
+
+   - `gopython`은 설치한 실행 파일을 시작합니다. `examples/fibonacci.py`는 현재 폴더를 기준으로 실행할 Python 파일의 경로입니다.
+
+   ```text
+   55
    ```
 
 새 터미널에서도 쓰려면 2단계의 export 줄을 셸 설정 파일에 추가하세요. zsh를 사용한다면 ~/.zshrc에 추가하면 됩니다. “command not found”가 나오면 해당 터미널에서 2단계를 다시 실행하세요.

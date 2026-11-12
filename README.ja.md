@@ -27,6 +27,9 @@ go run ./cmd/gopy examples/fibonacci.py
    go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
    ```
 
+   - `mkdir` はディレクトリを作ります。`-p` は不足している親ディレクトリも作り、対象がすでにあればそのまま使います。
+   - `go build` は Go のソースから実行ファイルを作ります。`-o` で出力先とファイル名を指定します。`./cmd/gopy` は現在のディレクトリから見た CLI パッケージの場所です。
+
 2. 現在のターミナルで gopython を見つけられるようにします。
 
    ```sh
@@ -37,6 +40,12 @@ go run ./cmd/gopy examples/fibonacci.py
 
    ```sh
    gopython examples/fibonacci.py
+   ```
+
+   - `gopython` はインストールした実行ファイルを起動します。`examples/fibonacci.py` は現在のディレクトリから見た、実行する Python ファイルのパスです。
+
+   ```text
+   55
    ```
 
 新しいターミナルでも使うには、手順 2 の export 行をシェルの設定ファイルに追加します。zsh では ~/.zshrc に追加してください。「command not found」が表示されたら、そのターミナルで手順 2 をもう一度実行します。

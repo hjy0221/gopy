@@ -27,6 +27,9 @@ Run these commands from the gopy folder you cloned above.
    go build -o "$HOME/.local/bin/gopython" ./cmd/gopy
    ```
 
+   - `mkdir` creates a directory. `-p` creates any missing parent directories and accepts an existing destination.
+   - `go build` builds an executable from Go source. `-o` sets the output path and filename. `./cmd/gopy` points to the CLI package relative to the current directory.
+
 2. Tell your current terminal where to find gopython.
 
    ```sh
@@ -37,6 +40,12 @@ Run these commands from the gopy folder you cloned above.
 
    ```sh
    gopython examples/fibonacci.py
+   ```
+
+   - `gopython` starts the installed executable. `examples/fibonacci.py` is the path to the Python file, relative to the current directory.
+
+   ```text
+   55
    ```
 
 To use the command in new terminals, add the export line from step 2 to your shell settings file. For zsh, use ~/.zshrc. If you see “command not found”, run step 2 again in that terminal.
