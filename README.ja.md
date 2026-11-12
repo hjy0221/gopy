@@ -2,37 +2,58 @@
 
 [English](README.md) · [한국어](README.ko.md) · [日本語](README.ja.md)
 
-`gopy` は Go で書かれた独立した Python 実装です。CPython を呼び出さずに Python ソースを直接実行することを目指します。
+gopy は Python の一部を Go で直接実行する処理系です。Go 1.22 以降が必要です。CPython のインストールは不要です。
 
-実行の流れは、字句解析 → 構文解析と AST → バイトコードコンパイラ → スタック型 VM → Python オブジェクトランタイムと組み込み関数です。
+## クイックスタート
 
-## 対応範囲
-
-字句解析器は、識別子、数値、引用符で囲まれた文字列、演算子と区切り記号、コメント、論理改行、インデントとその解除、ファイル終端を処理します。CLI の `-tokens` でトークン列を表示できます。構文解析器は、単純な代入、関数定義、return 文、if/else ブロック、関数呼び出し、リテラル、算術演算と比較を扱います。`--ast` で構文木を JSON として表示できます。オプションなしでソースファイルを指定すると、バイトコードにコンパイルして Go VM で実行します。フィボナッチの例は `55` を出力します。現在は 64 ビット整数の演算と比較、基本的な条件分岐、位置引数を取るトップレベルの関数、`print` を実行できます。文字列・浮動小数点リテラルと連鎖比較は構文解析で確認できます。
-
-## ビルドと実行
+次のコマンドでリポジトリを取得し、サンプルを実行します。
 
 ```sh
-go test ./...
+git clone https://github.com/hjy0221/gopy.git
+cd gopy
 go run ./cmd/gopy examples/fibonacci.py
-go run ./cmd/gopy --ast examples/fibonacci.py
-go run ./cmd/gopy -tokens example.py
-cat example.py | go run ./cmd/gopy -tokens
 ```
 
-## プロジェクト構成
+サンプルは `print(fibonacci(10))` を呼び出し、`55` を表示します。
 
-```text
-cmd/gopy/              CLI
-internal/lexer/        字句解析器
-internal/parser/       構文解析器
-internal/ast/          構文木
-internal/compiler/     バイトコードコンパイラ
-internal/bytecode/     命令の定義
-internal/vm/           スタック型 VM
-internal/runtime/      Python オブジェクトモデル (予定)
-internal/builtins/     組み込み関数 (予定)
-tests/                 統合テスト (予定)
+## 実行オプション
+
+| コマンド | 動作 |
+| --- | --- |
+| `go run ./cmd/gopy examples/fibonacci.py` | Python プログラムを実行し、結果を表示します。 |
+| `go run ./cmd/gopy --tokens examples/fibonacci.py` | 字句解析で得られたトークンを表示します。各行にはトークンの行番号、列番号、種類、元の文字列が表示されます。たとえば `print` は `IDENTIFIER`、`10` は `NUMBER` です。 |
+| `go run ./cmd/gopy --ast examples/fibonacci.py` | 抽象構文木 (AST) を JSON で表示します。式、関数呼び出し、インデントで区切られたブロックの構造を確認できます。 |
+| `go run ./cmd/gopy --help` | 利用できるオプションを表示して終了します。 |
+
+オプションはファイル名の前に指定します。`--tokens` と `--ast` はどちらか一方を指定してください。どちらもプログラムを実行せずにソースの構造を表示します。
+
+## 標準入力からの実行
+
+ファイル名を省略すると、標準入力から Python ソースを読み込みます。次の例は `7` を表示します。`--tokens` と `--ast` でも標準入力を利用できます。
+
+```sh
+printf 'print(1 + 2 * 3)\n' | go run ./cmd/gopy
 ```
 
-サンプルは `print(fibonacci(10))` を呼び出します。
+## 対応する Python の機能
+
+単純な代入、位置引数を取るトップレベルの関数、再帰呼び出し、`return`、`if/else`、64 ビット整数の演算と比較、`print` を実行できます。文字列・浮動小数点リテラルと連鎖比較は AST で確認できます。これらの構文、通常の除算 (`/`)、入れ子の関数の実行にはまだ対応していません。
+
+## 仕組み
+
+字句解析器がソースをトークンに分割し、構文解析器がトークンから AST を作ります。コンパイラが AST をバイトコードに変換し、スタック型 VM が実行します。
+
+- `cmd/gopy/` — CLI と実行オプション
+- `internal/lexer/` — 字句解析器
+- `internal/parser/ + internal/ast/` — 構文解析器と構文木
+- `internal/compiler/ + internal/bytecode/` — コンパイラとバイトコードの定義
+- `internal/vm/` — スタック型 VM
+- `examples/fibonacci.py` — 55 を表示するサンプル
+
+## ビルドとテスト
+
+```sh
+go build -o gopy ./cmd/gopy
+./gopy examples/fibonacci.py
+go test ./...
+```
